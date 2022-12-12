@@ -38,6 +38,7 @@ suite('Functional Tests', function() {
         .put('/travellers')
 
         .end(function(err, res) {
+          console.log(res);
           console.log(res.body);
           assert.equal(res.status, 200);
           assert.equal(res.type, 'application/json');
