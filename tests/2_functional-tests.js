@@ -38,10 +38,11 @@ suite('Functional Tests', function() {
         .put('/travellers')
 
         .end(function(err, res) {
+          console.log(res.body);
           assert.equal(res.status, 200);
           assert.equal(res.type, 'application/json');
-          assert.equal(res.body.surname, 'Colombo');
           assert.equal(res.body.name, 'Cristoforo');
+          assert.equal(res.body.surname, 'Colombo');
 
           done();
         });
