@@ -38,8 +38,6 @@ suite('Functional Tests', function() {
         .put('/travellers')
         .send({"surname": "Colombo"})
         .end(function(err, res) {
-          console.log(res);
-          console.log(res.body);
           assert.equal(res.status, 200);
           assert.equal(res.type, 'application/json');
           assert.equal(res.body.name, 'Cristoforo');
@@ -53,8 +51,12 @@ suite('Functional Tests', function() {
       chai
         .request(server)
         .put('/travellers')
+        .send({"surname": "Cda Verrazzano"})
         .end(function(err, res) {
           assert.equal(res.status, 200);
+          assert.equal(res.type, "application/json");
+          assert.equal(res.body.name, "Giovanni");
+          assert.equal(res.body.surname, "da Verrazzano");
           done();
         });
     });
