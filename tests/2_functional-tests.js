@@ -64,11 +64,16 @@ suite('Functional Tests', function() {
 });
 
 const Browser = require('zombie');
+Browser.site = "https://monochai-exercise.onrender.com/";
 
 suite('Functional Tests with Zombie.js', function() {
+  const browser = new Browser();
+
+  suiteSetup(function(done) {
+    return browser.visit('/', done);
+  });
+
   this.timeout(5000);
-
-
 
   suite('Headless browser', function() {
     test('should have a working "site" property', function() {
